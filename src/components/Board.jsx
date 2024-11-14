@@ -93,40 +93,40 @@ export const Board = () => {
 	};
 
 	return (
-		<>
-			{gameOver && (
-				<div className='fixed inset-0 bg-black opacity-50 z-10'></div>
-			)}
-
-			<div className='relative h-screen flex items-center '>
-				<div className='bg-black mx-auto flex flex-col justify-center items-center px-5 my-3'>
-					<h1 className='font-bold text-4xl my-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 md:text-5xl'>
-						Presi Test
-					</h1>
-					<div className='grid grid-cols-5 gap-6 justify-center items-center px-3 py-3 my-3'>
-						{cards.map(card => (
-							<Card
-								card={card}
-								key={card.id}
-								handleCardClick={handleCardClick}
-							/>
-						))}
-					</div>
-					<button
-						className='bg-black font-semibold text-white rounded-md px-5 py-1 hover:bg-yellow-500 hover:text-black transition-all mb-3'
-						onClick={handleNewGame}
-					>
-						Nuevo Juego
-					</button>
-				</div>
-
-				<Modal
-					gameOver={gameOver}
-					setGameOver={setGameOver}
-					moves={moves}
-					handleNewGame={handleNewGame}
-				/>
-			</div>
-		</>
-	);
+        <>
+            {gameOver && (
+                <div className='fixed inset-0 bg-black opacity-50 z-10'></div>
+            )}
+    
+            <div className='bg-black relative h-screen flex items-center'>
+                <div className='bg-black w-full mx-auto flex flex-col justify-center items-center px-3  my-3'>
+                    <h1 className='font-bold text-3xl sm:text-4xl md:text-5xl my-2 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'>
+                        Presi Test
+                    </h1>
+                    <div className='grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 justify-center items-center px-2 py-2 my-3'>
+                        {cards.map(card => (
+                            <Card
+                                card={card}
+                                key={card.id}
+                                handleCardClick={handleCardClick}
+                            />
+                        ))}
+                    </div>
+                    <button
+                        className='bg-black font-semibold text-white rounded-md px-4 py-2 sm:px-5 sm:py-2 hover:bg-yellow-500 hover:text-black transition-all mb-3'
+                        onClick={handleNewGame}
+                    >
+                        Nuevo Juego
+                    </button>
+                </div>
+    
+                <Modal
+                    gameOver={gameOver}
+                    setGameOver={setGameOver}
+                    moves={moves}
+                    handleNewGame={handleNewGame}
+                />
+            </div>
+        </>
+    )
 };
